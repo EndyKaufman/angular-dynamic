@@ -209,7 +209,7 @@ export const environment: IEnvironment = {
                       console.log(panel, activatedRouteSnapshot.params);
                     }
                   );
-                  panel.httpClient.get('http://598726293223df0011bbead7.mockapi.io/api/groups').pipe(
+                  panel.httpClient.get('https://598726293223df0011bbead7.mockapi.io/api/groups').pipe(
                     map(data => data['groups'])
                   ).subscribe(data => {
                     panel.gridRef.api.setRowData(data);
@@ -251,7 +251,7 @@ export const environment: IEnvironment = {
                       console.log(panel, activatedRouteSnapshot.params);
                     }
                   );
-                  panel.httpClient.get('http://598726293223df0011bbead7.mockapi.io/api/users').pipe(
+                  panel.httpClient.get('https://598726293223df0011bbead7.mockapi.io/api/users').pipe(
                     map(data => data['users'])
                   ).subscribe(data => {
                     panel.gridRef.api.setRowData(data);
