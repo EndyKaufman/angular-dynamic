@@ -4,9 +4,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Used libs
 https://www.ag-grid.com/angular-getting-started/
+
 https://formly-js.github.io/ngx-formly/
+
 https://github.com/datorama/akita
+
 https://github.com/IndigoSoft/ngxd
+
 https://github.com/NG-ZORRO/ng-zorro-antd
 
 ## Development server
