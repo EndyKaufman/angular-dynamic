@@ -1,0 +1,8 @@
+<ng-container *ngIf="componentsOptions$|async as componentsOptions">
+    <ng-container *ngFor="let componentOptions of componentsOptions; let i = index">
+        <dynamic-panel
+            [options]="componentOptions"
+            [parent]="this"
+            [index]="i"></dynamic-panel>
+    </ng-container>
+</ng-container>

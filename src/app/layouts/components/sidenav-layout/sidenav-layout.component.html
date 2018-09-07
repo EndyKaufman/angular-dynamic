@@ -1,0 +1,74 @@
+<nz-layout>
+    <nz-sider
+        nzCollapsible
+        [nzCollapsed]="mainNavIsCollapsed"
+        [nzTrigger]="null">
+        <div class="logo"></div>
+        <ul
+            nz-menu
+            [nzTheme]="mainNavTheme$ | async"
+            [nzMode]="'inline'"
+            [nzInlineCollapsed]="mainNavIsCollapsed"
+            *ngIf="mainNavItems$ | async as mainNavItems">
+            <li
+                nz-submenu
+                *ngFor="let parent of mainNavItems">
+                <span
+                    title
+                    (click)="mainNavUpdateSelectedItem(parent)">
+                    <i
+                        [class]="parent?.icon"
+                        *ngIf="parent?.icon"></i>
+                    <span
+                        class="nav-text"
+                        *ngIf="parent?.caption">
+                        {{parent?.caption}}
+                    </span>
+                </span>
+                <ul *ngIf="parent?.children">
+                    <li
+                        nz-menu-item
+                        *ngFor="let item of parent.children"
+                        (click)="mainNavUpdateSelectedItem(item)">
+                        <a
+                            *ngIf="item.routerLink"
+                            [routerLink]="item.routerLink">
+                            {{item.caption}}
+                        </a>
+                        <span *ngIf="!item.routerLink">{{item.caption}}</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nz-sider>
+    <nz-layout>
+        <nz-header style="background: #fff; padding:0;">
+            <i
+                class="anticon trigger"
+                [class.anticon-menu-fold]="!mainNavIsCollapsed"
+                [class.anticon-menu-unfold]="mainNavIsCollapsed"
+                (click)="mainNavToggleIsCollapsed()"></i>
+        </nz-header>
+        <nz-content style="margin:0 16px;">
+            <nz-breadcrumb
+                style="margin:16px 0;"
+                *ngIf="mainBreadcrumbStateItems$ | async as mainBreadcrumbStateItems">
+                <nz-breadcrumb-item
+                    *ngFor="let item of mainBreadcrumbStateItems; let index = index"
+                    (click)="mainBreadcrumbUpdateSelectedItem(item)">
+                    <a
+                        *ngIf="item.routerLink && mainBreadcrumbStateItems.length>index+1"
+                        [routerLink]="item.routerLink">
+                        {{item.caption}}
+                    </a>
+                    <a *ngIf="!item.routerLink && mainBreadcrumbStateItems.length>index+1">{{item.caption}}</a>
+                    <span *ngIf="mainBreadcrumbStateItems.length===index+1">{{item.caption}}</span>
+                </nz-breadcrumb-item>
+            </nz-breadcrumb>
+            <div style="padding:24px; background: #fff; min-height: 360px;">
+                <ng-container *ngTemplateOutlet="contentRef"></ng-container>
+            </div>
+        </nz-content>
+        <nz-footer style="text-align: center;">Ant Design ©2017 Implement By Angular</nz-footer>
+    </nz-layout>
+</nz-layout>

@@ -1,0 +1,19 @@
+<form
+    *ngIf="options"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit(this)">
+    <formly-form
+        [form]="form"
+        [fields]="fields"
+        [options]="formOptions"
+        [model]="model">
+        <button
+            *ngFor="let button of buttons; let i = index"
+            [type]="button.type"
+            [ngClass]="button.class"
+            (click)="button.type!=='submit' ? button.onClick(this, buttonRef) : null"
+            #buttonRef>
+            {{button.caption}}
+        </button>
+    </formly-form>
+</form>
