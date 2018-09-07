@@ -2,6 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
 
+## Used libs
+https://www.ag-grid.com/angular-getting-started/
+https://formly-js.github.io/ngx-formly/
+https://github.com/datorama/akita
+https://github.com/IndigoSoft/ngxd
+https://github.com/NG-ZORRO/ng-zorro-antd
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
